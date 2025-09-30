@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casino Royale</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: black;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                  url('https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      color: #ff0000;
+      text-shadow: 0 0 15px #ff0000;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+    }
+
+    .hero button {
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      background: #ff0000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 0 15px #ff0000;
+      transition: 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: white;
+      color: black;
+      box-shadow: 0 0 20px white;
+    }
+
+    /* Features */
+    .features {
+      background: #111;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .features h2 {
+      color: #ff0000;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: #222;
+      border: 2px solid #ff0000;
+      border-radius: 15px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    /* Footer */
+    footer {
+      background: black;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #888;
+      border-top: 1px solid #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Casino Royale</h1>
+    <p>Step into the ultimate online casino experience. Play. Win. Repeat.</p>
+    <button>Start Playing</button>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Why Choose Us?</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>🔥 Huge Jackpots</h3>
+        <p>Spin the reels or play cards and chase life-changing wins.</p>
+      </div>
+      <div class="card">
+        <h3>🎰 100+ Games</h3>
+        <p>Slots, poker, roulette, blackjack & more — all in one place.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Instant Access</h3>
+        <p>No downloads needed. Jump right into the action.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Casino Royale. All rights reserved.
+  </footer>
+</body>
+</html>
