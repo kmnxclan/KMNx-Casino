@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Casino Royale</title>
+  <title>KMNx Casino</title>
   <style>
     /* Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,15 +23,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.7);
       backdrop-filter: blur(8px);
       z-index: 1000;
+      border-bottom: 2px solid #ff0000;
     }
 
     nav h1 {
       font-size: 1.8rem;
-      color: #ff0000;
-      text-shadow: 0 0 8px #ff0000;
+      background: linear-gradient(45deg, #ff0000, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
     }
 
     nav ul {
@@ -54,27 +57,37 @@
     /* Hero */
     .hero {
       height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                  url('https://images.unsplash.com/photo-1518548419970-58e3b4079f47?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 20px;
+      background: radial-gradient(circle at center, rgba(255,0,0,0.2) 0%, #0d0d0d 80%);
+      position: relative;
+      overflow: hidden;
     }
 
     .hero h2 {
-      font-size: 3.5rem;
-      color: white;
+      font-size: 4rem;
       margin-bottom: 20px;
       text-shadow: 0 0 20px #ff0000;
+      background: linear-gradient(90deg, #ff0000, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 15px #ff0000; }
+      to { text-shadow: 0 0 30px #ff4444; }
     }
 
     .hero p {
       font-size: 1.3rem;
       margin-bottom: 30px;
       color: #ddd;
+      max-width: 600px;
     }
 
     .cta-btn {
@@ -82,7 +95,7 @@
       font-size: 1.2rem;
       background: linear-gradient(45deg, #ff0000, #990000);
       border: none;
-      border-radius: 10px;
+      border-radius: 50px;
       cursor: pointer;
       color: white;
       font-weight: bold;
@@ -92,15 +105,70 @@
 
     .cta-btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 30px white;
+      box-shadow: 0 0 35px white;
       background: white;
       color: black;
     }
 
-    /* Features / Games Grid */
+    /* Floating Particles */
+    .particle {
+      position: absolute;
+      background: rgba(255,0,0,0.7);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float 8s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh) scale(0.3); opacity: 0; }
+      50%  { opacity: 1; }
+      to   { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    /* Promo Section */
+    .promo {
+      padding: 80px 20px;
+      text-align: center;
+      background: #111;
+      border-top: 2px solid #ff0000;
+      border-bottom: 2px solid #ff0000;
+    }
+
+    .promo h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ff0000;
+    }
+
+    .promo p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      color: #ccc;
+    }
+
+    .promo button {
+      padding: 15px 40px;
+      background: linear-gradient(90deg, #ff0000, #660000);
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 20px #ff0000;
+    }
+
+    .promo button:hover {
+      background: white;
+      color: black;
+      box-shadow: 0 0 30px white;
+    }
+
+    /* Games Section */
     .games {
       padding: 80px 40px;
-      background: #111;
+      background: #0d0d0d;
       text-align: center;
     }
 
@@ -160,7 +228,7 @@
 <body>
   <!-- Navbar -->
   <nav>
-    <h1>Casino Royale</h1>
+    <h1>KMNx Casino</h1>
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#">Games</a></li>
@@ -171,9 +239,23 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h2>Welcome to the Future of Online Casino</h2>
-    <p>Premium games, massive jackpots, and nonstop excitement — all at your fingertips.</p>
-    <button class="cta-btn">Play Now</button>
+    <h2>Welcome to KMNx Casino</h2>
+    <p>The ultimate online casino experience — jackpots, thrills, and endless fun await you.</p>
+    <button class="cta-btn">Start Playing</button>
+
+    <!-- Floating Particles -->
+    <div class="particle" style="width:20px; height:20px; left:10%; animation-duration:9s;"></div>
+    <div class="particle" style="width:15px; height:15px; left:30%; animation-duration:12s;"></div>
+    <div class="particle" style="width:25px; height:25px; left:50%; animation-duration:10s;"></div>
+    <div class="particle" style="width:18px; height:18px; left:70%; animation-duration:14s;"></div>
+    <div class="particle" style="width:22px; height:22px; left:90%; animation-duration:11s;"></div>
+  </section>
+
+  <!-- Promo Section -->
+  <section class="promo">
+    <h2>💎 Welcome Bonus</h2>
+    <p>Join KMNx Casino today and claim your <b>100% bonus up to $500</b> on your first deposit!</p>
+    <button>Claim Bonus</button>
   </section>
 
   <!-- Games Section -->
@@ -205,7 +287,7 @@
 
   <!-- Footer -->
   <footer>
-    © 2025 Casino Royale. All rights reserved.
+    © 2025 KMNx Casino. All rights reserved.
   </footer>
 </body>
 </html>
