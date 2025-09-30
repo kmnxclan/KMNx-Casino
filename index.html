@@ -186,4 +186,38 @@ footer { text-align:center; padding:20px; background:#111; border-top:2px solid 
       <p>Challenge other players and show off your poker skills.</p>
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/4j3rHfF/roulette.jpg" alt="
+      <img src="https://i.ibb.co/4j3rHfF/roulette.jpg" alt="Roulette">
+      <h3>Roulette</h3>
+      <p>Place your bets, spin the wheel, and feel the thrill.</p>
+    </div>
+    <div class="card">
+      <img src="https://i.ibb.co/8b3YGrS/blackjack.jpg" alt="Blackjack">
+      <h3>Blackjack</h3>
+      <p>Beat the dealer in classic 21 and take your winnings home.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 KMNx Casino. All rights reserved.
+</footer>
+
+<script>
+// Warning Modal Logic
+document.getElementById('acceptBtn').addEventListener('click', function(){
+  document.getElementById('warningModal').style.display = 'none';
+});
+
+// Rules Modal Logic
+function openRules() { document.getElementById('rulesModal').style.display = 'flex'; }
+function closeRules() { document.getElementById('rulesModal').style.display = 'none'; }
+
+// Smooth scroll to sections
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
