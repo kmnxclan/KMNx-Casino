@@ -1,218 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KMNx Casino</title>
-  <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KMNx Casino</title>
+<style>
+/* GENERAL */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Arial', sans-serif; background: #0d0d0d; color: #fff; }
+a { text-decoration: none; color: inherit; }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0d0d0d;
-      color: white;
-      scroll-behavior: smooth;
-    }
+/* NAVBAR */
+header {
+  position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between;
+  align-items: center; padding: 15px 50px; background: #111; border-bottom: 2px solid #ff0000;
+  z-index: 1000;
+}
+header h1 { font-size: 1.8rem; color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+nav a { margin-left: 25px; font-weight: bold; transition: 0.3s; }
+nav a:hover { color: #ff0000; }
 
-    header {
-      background: linear-gradient(90deg, #ff0000, #990000);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-    }
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 0 20px;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.ibb.co/vDq6fBg/casino-bg.jpg') center/cover no-repeat;
+}
+.hero h2 {
+  font-size: 4rem; color: #ff0000; text-shadow: 0 0 25px #ff0000;
+}
+.hero p { font-size: 1.2rem; margin: 20px 0 40px; color: #fff; max-width: 600px; }
+.hero .btn { padding: 15px 50px; font-size: 1.2rem; background: #ff0000; border: none; border-radius: 50px;
+  cursor: pointer; font-weight: bold; color: #fff; box-shadow: 0 0 20px #ff0000; transition: 0.3s; }
+.hero .btn:hover { background: #fff; color: #000; box-shadow: 0 0 35px #fff; transform: scale(1.05); }
 
-    header h1 {
-      font-size: 1.8rem;
-      color: white;
-    }
+/* SECTIONS */
+section { padding: 100px 20px 80px; }
+section h2 { font-size: 2.5rem; text-align: center; margin-bottom: 50px; color: #ff0000; text-shadow: 0 0 15px #ff0000; }
 
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #ffd700; }
+/* GAMES */
+.games .cards {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+}
+.games .card {
+  background: #1a1a1a; border-radius: 15px; width: 250px; padding: 15px; text-align: center;
+  border: 2px solid #ff0000; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
+}
+.games .card:hover { transform: translateY(-10px); box-shadow: 0 0 25px #ff0000; }
+.games .card img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
+.games .card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+.games .card p { color: #ccc; font-size: 0.9rem; }
 
-    section {
-      min-height: 100vh;
-      padding: 6rem 2rem;
-    }
+/* CONTACT */
+.contact form { max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px; }
+.contact input, .contact textarea { padding: 12px; border-radius: 8px; border: none; background: #222; color: #fff; }
+.contact .submit { background: #ff0000; color: #fff; border: none; padding: 15px; font-weight: bold; border-radius: 8px; cursor: pointer;
+  transition: 0.3s; }
+.contact .submit:hover { background: #fff; color: #000; }
 
-    /* Hero */
-    .hero {
-      background: url('https://i.ibb.co/vDq6fBg/casino-bg.jpg') no-repeat center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      flex-direction: column;
-    }
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 8px black;
-    }
-    .hero button {
-      background: #ff0000;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      color: white;
-      transition: 0.3s;
-    }
-    .hero button:hover {
-      background: #ffd700;
-      color: black;
-      transform: scale(1.1);
-    }
-
-    /* Games */
-    .games {
-      background: #111;
-      text-align: center;
-    }
-    .games h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #ff0000;
-    }
-    .game-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    .game-card {
-      background: #1a1a1a;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-    .game-card img {
-      width: 100%;
-      display: block;
-    }
-    .game-card h3 {
-      padding: 1rem;
-      color: white;
-    }
-    .game-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ff0000;
-    }
-
-    /* Contact */
-    .contact {
-      background: #0d0d0d;
-      text-align: center;
-    }
-    .contact h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #ff0000;
-    }
-    .contact p {
-      margin-bottom: 1rem;
-    }
-    form {
-      max-width: 500px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-    }
-    input, textarea {
-      margin: 0.5rem 0;
-      padding: 0.8rem;
-      border-radius: 8px;
-      border: none;
-    }
-    button.submit {
-      background: #ff0000;
-      color: white;
-      border: none;
-      padding: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button.submit:hover {
-      background: #ffd700;
-      color: black;
-    }
-
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-  </style>
+/* FOOTER */
+footer { text-align: center; padding: 20px; background: #111; border-top: 2px solid #ff0000; font-size: 0.9rem; }
+</style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1>KMNx Casino</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#games">Games</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <h2>Welcome to KMNx Casino</h2>
-    <p>The Future of Online Entertainment</p>
-    <button>Play Now</button>
-  </section>
+<header>
+  <h1>KMNx Casino</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#games">Games</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <!-- Games -->
-  <section id="games" class="games">
-    <h2>Our Games</h2>
-    <div class="game-grid">
-      <div class="game-card">
-        <img src="https://i.ibb.co/1M8fTdQ/slots.jpg" alt="Slots">
-        <h3>Slots</h3>
-      </div>
-      <div class="game-card">
-        <img src="https://i.ibb.co/QCvgfP5/poker.jpg" alt="Poker">
-        <h3>Poker</h3>
-      </div>
-      <div class="game-card">
-        <img src="https://i.ibb.co/4j3rHfF/roulette.jpg" alt="Roulette">
-        <h3>Roulette</h3>
-      </div>
-      <div class="game-card">
-        <img src="https://i.ibb.co/8b3YGrS/blackjack.jpg" alt="Blackjack">
-        <h3>Blackjack</h3>
-      </div>
+<section id="home" class="hero">
+  <h2>Welcome to KMNx Casino</h2>
+  <p>Experience the ultimate online casino thrill — jackpots, poker, slots, and more in one place.</p>
+  <button class="btn">Play Now</button>
+</section>
+
+<section id="games" class="games">
+  <h2>Our Games</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://i.ibb.co/1M8fTdQ/slots.jpg" alt="Slots">
+      <h3>Slots</h3>
+      <p>Spin exciting reels and win big with our top slot games.</p>
     </div>
-  </section>
+    <div class="card">
+      <img src="https://i.ibb.co/QCvgfP5/poker.jpg" alt="Poker">
+      <h3>Poker</h3>
+      <p>Challenge other players and show off your poker skills.</p>
+    </div>
+    <div class="card">
+      <img src="https://i.ibb.co/4j3rHfF/roulette.jpg" alt="Roulette">
+      <h3>Roulette</h3>
+      <p>Place your bets, spin the wheel, and feel the thrill.</p>
+    </div>
+    <div class="card">
+      <img src="https://i.ibb.co/8b3YGrS/blackjack.jpg" alt="Blackjack">
+      <h3>Blackjack</h3>
+      <p>Beat the dealer in classic 21 and take your winnings home.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>Have questions? Reach out below!</p>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Message"></textarea>
-      <button type="submit" class="submit">Send</button>
-    </form>
-  </section>
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Questions or support? Reach out and we'll get back to you!</p>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Message"></textarea>
+    <button type="submit" class="submit">Send</button>
+  </form>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 KMNx Casino. All Rights Reserved.</p>
-  </footer>
+<footer>
+  © 2025 KMNx Casino. All rights reserved.
+</footer>
+
 </body>
 </html>
