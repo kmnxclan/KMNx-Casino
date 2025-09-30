@@ -7,19 +7,55 @@
   <style>
     /* Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
-      font-family: Arial, sans-serif;
-      background: black;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #0d0d0d;
       color: white;
       overflow-x: hidden;
     }
 
-    /* Hero Section */
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      color: #ff0000;
+      text-shadow: 0 0 8px #ff0000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ff0000;
+    }
+
+    /* Hero */
     .hero {
       height: 100vh;
       background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                  url('https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+                  url('https://images.unsplash.com/photo-1518548419970-58e3b4079f47?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -28,86 +64,93 @@
       padding: 20px;
     }
 
-    .hero h1 {
-      font-size: 4rem;
-      color: #ff0000;
-      text-shadow: 0 0 15px #ff0000;
-      margin-bottom: 15px;
+    .hero h2 {
+      font-size: 3.5rem;
+      color: white;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px #ff0000;
     }
 
     .hero p {
       font-size: 1.3rem;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+      color: #ddd;
     }
 
-    .hero button {
-      padding: 15px 40px;
+    .cta-btn {
+      padding: 15px 45px;
       font-size: 1.2rem;
-      background: #ff0000;
+      background: linear-gradient(45deg, #ff0000, #990000);
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       color: white;
       font-weight: bold;
-      box-shadow: 0 0 15px #ff0000;
-      transition: 0.3s ease;
+      box-shadow: 0 0 20px #ff0000;
+      transition: 0.3s;
     }
 
-    .hero button:hover {
+    .cta-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px white;
       background: white;
       color: black;
-      box-shadow: 0 0 20px white;
     }
 
-    /* Features */
-    .features {
+    /* Features / Games Grid */
+    .games {
+      padding: 80px 40px;
       background: #111;
-      padding: 50px 20px;
       text-align: center;
     }
 
-    .features h2 {
-      color: #ff0000;
-      margin-bottom: 30px;
+    .games h2 {
       font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #ff0000;
     }
 
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
     }
 
     .card {
-      background: #222;
-      border: 2px solid #ff0000;
+      background: #1a1a1a;
       border-radius: 15px;
       padding: 20px;
-      width: 300px;
-      text-align: center;
-      transition: transform 0.3s;
+      border: 2px solid #222;
+      box-shadow: 0 0 10px rgba(255,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .card:hover {
-      transform: scale(1.05);
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px #ff0000;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
     }
 
     .card h3 {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       color: white;
     }
 
     .card p {
       font-size: 0.95rem;
-      color: #ccc;
+      color: #bbb;
     }
 
     /* Footer */
     footer {
       background: black;
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
       font-size: 0.9rem;
       color: #888;
       border-top: 1px solid #ff0000;
@@ -115,28 +158,47 @@
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav>
+    <h1>Casino Royale</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Games</a></li>
+      <li><a href="#">Promotions</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Casino Royale</h1>
-    <p>Step into the ultimate online casino experience. Play. Win. Repeat.</p>
-    <button>Start Playing</button>
+    <h2>Welcome to the Future of Online Casino</h2>
+    <p>Premium games, massive jackpots, and nonstop excitement — all at your fingertips.</p>
+    <button class="cta-btn">Play Now</button>
   </section>
 
-  <!-- Features Section -->
-  <section class="features">
-    <h2>Why Choose Us?</h2>
-    <div class="cards">
+  <!-- Games Section -->
+  <section class="games">
+    <h2>Popular Games</h2>
+    <div class="grid">
       <div class="card">
-        <h3>🔥 Huge Jackpots</h3>
-        <p>Spin the reels or play cards and chase life-changing wins.</p>
+        <img src="https://images.unsplash.com/photo-1560221328-12fe60f83ab8?auto=format&fit=crop&w=600&q=80" alt="Slots">
+        <h3>🎰 Slots</h3>
+        <p>Spin and win with exciting slot machines packed with rewards.</p>
       </div>
       <div class="card">
-        <h3>🎰 100+ Games</h3>
-        <p>Slots, poker, roulette, blackjack & more — all in one place.</p>
+        <img src="https://images.unsplash.com/photo-1602934445752-5b17472b7a20?auto=format&fit=crop&w=600&q=80" alt="Poker">
+        <h3>🃏 Poker</h3>
+        <p>Test your skills against the best and climb the leaderboard.</p>
       </div>
       <div class="card">
-        <h3>⚡ Instant Access</h3>
-        <p>No downloads needed. Jump right into the action.</p>
+        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=600&q=80" alt="Roulette">
+        <h3>🎡 Roulette</h3>
+        <p>Bet big, spin the wheel, and let fortune decide your fate.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1599474924187-1036c5f21659?auto=format&fit=crop&w=600&q=80" alt="Blackjack">
+        <h3>♠️ Blackjack</h3>
+        <p>Classic 21 action — beat the dealer and win instantly.</p>
       </div>
     </div>
   </section>
